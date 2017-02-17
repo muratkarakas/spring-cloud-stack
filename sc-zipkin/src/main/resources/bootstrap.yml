@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: sc-zipkin
+  cloud:
+    config:
+      uri: http://localhost:8888

@@ -1,0 +1,7 @@
+server:
+  port: 9999
+  
+zuul:
+  debug:
+    request: true
+  

@@ -1,0 +1,19 @@
+spring:
+  zipkin:
+    baseUrl:http://localhost:9411  
+    enabled:true    
+
+
+logging:
+   level:
+     root: INFO
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+  healthcheck:
+      enabled: true
+  lease:
+      duration: 5
