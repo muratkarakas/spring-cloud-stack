@@ -1,0 +1,52 @@
+sc-config-server:
+    image: springcloudstack_sc-config-server:v1
+    hostname: "configserver"
+    ports:
+     - "8888:8888"
+     
+     
+     
+sc-eureka-server:
+    #build: .
+    image: springcloudstack_sc-eureka-server:v1
+    hostname: "eurekaserver"
+    ports:
+     - "8761:8761"  
+     
+sc-zipkin-server:
+    image: springcloudstack_sc-zipkin:v1
+    hostname: "zipkinserver"
+    links:
+        - "sc-config-server:configserver"
+    ports:
+        - "9411:9411"   
+    environment:
+        CONFIGSERVER_HOST:   "configserver"
+        CONFIGSERVER_PORT:   "8888" 
+     
+sc-service:
+    image: springcloudstack_sc-service:v1
+    hostname: "sc-service"
+    links:
+        - "sc-config-server:configserver"
+        - "sc-eureka-server:eurekaserver"
+        - "sc-zipkin-server:zipkinserver"
+    ports:
+        - "6666:6666"   
+    environment:
+        CONFIGSERVER_HOST:   "configserver"
+        CONFIGSERVER_PORT:   "8888"  
+        
+sc-service-client:
+    image: springcloudstack_sc-service-client:v1
+    hostname: "service"
+    links:
+        - "sc-config-server:configserver"
+        - "sc-eureka-server:eurekaserver"
+        - "sc-service:sc-service"
+        - "sc-zipkin-server:zipkinserver"
+    ports:
+        - "8081:8081"   
+    environment:
+        CONFIGSERVER_HOST:   "configserver"
+        CONFIGSERVER_PORT:   "8888"          

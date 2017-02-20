@@ -1,6 +1,6 @@
 spring:
   zipkin:
-    baseUrl:http://localhost:9411  
+    baseUrl: http://zipkinserver:9411  
     enabled:true    
 
 
@@ -17,3 +17,17 @@ eureka:
       enabled: true
   lease:
       duration: 5
+      
+      
+---
+spring:
+  profiles: docker
+  zipkin:
+    baseUrl: http://zipkinserver:9411            
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka/    
