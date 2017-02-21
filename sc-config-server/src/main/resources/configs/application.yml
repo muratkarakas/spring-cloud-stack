@@ -1,12 +1,7 @@
 spring:
   zipkin:
-    baseUrl: http://localhost:9411  
-    enabled:true    
-
-
-logging:
-   level:
-     root: INFO
+    baseUrl: http://localhost:9411/  
+    enabled: true    
 eureka:
   instance:
     hostname: localhost
@@ -23,9 +18,11 @@ eureka:
 spring:
   profiles: docker
   zipkin:
-    baseUrl: http://zipkinserver:9411            
+    enabled: true    
+    baseUrl: http://zipkinserver:9411/            
 
 eureka:
+  profiles: docker
   instance:
     prefer-ip-address: true
   client:
