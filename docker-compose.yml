@@ -26,7 +26,7 @@ sc-zipkin-server:
      
 sc-service:
     image: springcloudstack_sc-service:v1
-    hostname: "sc-service"
+    hostname: "service"
     links:
         - "sc-config-server:configserver"
         - "sc-eureka-server:eurekaserver"
@@ -39,14 +39,46 @@ sc-service:
         
 sc-service-client:
     image: springcloudstack_sc-service-client:v1
-    hostname: "service"
+    hostname: "serviceclient"
     links:
         - "sc-config-server:configserver"
         - "sc-eureka-server:eurekaserver"
-        - "sc-service:sc-service"
+        - "sc-service:service"
         - "sc-zipkin-server:zipkinserver"
     ports:
         - "8081:8081"   
     environment:
         CONFIGSERVER_HOST:   "configserver"
-        CONFIGSERVER_PORT:   "8888"          
+        CONFIGSERVER_PORT:   "8888"         
+        
+
+sc-hystrix-dashboard:
+    image: springcloudstack_sc-hystrix-dashboard:v1
+    hostname: "hystrix"
+    links:
+        - "sc-config-server:configserver"
+        - "sc-eureka-server:eurekaserver"
+        - "sc-service-client:serviceclient"
+        - "sc-service:service"
+        - "sc-zuul-proxy:zuul"
+
+    ports:
+        - "8082:8082"   
+    environment:
+        CONFIGSERVER_HOST:   "configserver"
+        CONFIGSERVER_PORT:   "8888"             
+        
+sc-zuul-proxy:
+    image: springcloudstack_sc-zuul-proxy:v1
+    hostname: "zuul"
+    links:
+        - "sc-config-server:configserver"
+        - "sc-eureka-server:eurekaserver"
+        - "sc-service-client:serviceclient"
+        - "sc-service:service"
+        - "sc-zipkin-server:zipkinserver"
+    ports:
+        - "9999:9999"   
+    environment:
+        CONFIGSERVER_HOST:   "configserver"
+        CONFIGSERVER_PORT:   "8888"         

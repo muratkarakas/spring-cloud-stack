@@ -19,5 +19,15 @@ cd ..
 cd sc-zipkin
 mvn  package docker:build -DskipTests
 
+
+cd ..
+cd sc-hystrix-dashboard
+mvn  package docker:build -DskipTests
+
+cd ..
+cd sc-zuul-proxy
+mvn  package docker:build -DskipTests
+
+
 cd ..
 docker-compose up
