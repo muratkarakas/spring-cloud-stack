@@ -10,6 +10,8 @@ sc-eureka-server:
     #build: .
     image: springcloudstack_sc-eureka-server:v1
     hostname: "eurekaserver"
+    mem_limit: 1024M
+    memswap_limit: 1536M
     ports:
      - "8761:8761"  
      
@@ -32,7 +34,7 @@ sc-service:
         - "sc-eureka-server:eurekaserver"
         - "sc-zipkin-server:zipkinserver"
     ports:
-        - "6666:6666"   
+        - "8083:8083"   
     environment:
         CONFIGSERVER_HOST:   "configserver"
         CONFIGSERVER_PORT:   "8888"  
@@ -40,6 +42,7 @@ sc-service:
 sc-service-client:
     image: springcloudstack_sc-service-client:v1
     hostname: "serviceclient"
+    mem_limit: 512M
     links:
         - "sc-config-server:configserver"
         - "sc-eureka-server:eurekaserver"
