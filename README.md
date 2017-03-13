@@ -48,13 +48,13 @@ Spring Cloud Hystrix provides "Circuit Breakers" for those situations. You can d
   <img src="https://i.stack.imgur.com/bjHNdl.png"></img>
   </li>
   <br/>
-  <li>Discovery Server:http://localhost:8761/
+  <li>Discovery Server: http://localhost:8761/
   </li>
   <br/>
-  <li>Microservice  :http://localhost:8083/ping
+  <li>Microservice  : http://localhost:8083/ping
   </li>
   <br/>
-  <li>Microservice  (client with Load Balacing and Circuit Breaker ):http://localhost:8081/greeting
+  <li>Microservice  (client with Load Balacing and Circuit Breaker ): http://localhost:8081/greeting
   </li>
   <br/>
   <li>Microservice  over proxy: http://localhost:9999/sc-service-client/greeting    acme/password
