@@ -60,7 +60,7 @@ Spring Cloud Hystrix provides "Circuit Breakers" for those situations. You can d
   <li>Microservice  over proxy: <a href="http://localhost:9999/sc-service-client/greeting">http://localhost:9999/sc-service-client/greeting</a>    acme/password
   </li>
   <br/>
-  <li>Service Trace  with Zipkin: <a href=" http://localhost:9411/">http://localhost:9411/</a>  
+  <li>Service Trace  with Zipkin: <a href="http://localhost:9411/">http://localhost:9411/</a>  
   </li>
   <br/>
   <li>Circuit Breakers Monitor: <a href="http://localhost:8082/hystrix/monitor?stream=http://localhost:8082/turbine.stream" >http://localhost:8082/hystrix/monitor?stream=http://localhost:8082/turbine.stream</a>
