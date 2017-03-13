@@ -48,22 +48,22 @@ Spring Cloud Hystrix provides "Circuit Breakers" for those situations. You can d
   <img src="https://i.stack.imgur.com/bjHNdl.png"></img>
   </li>
   <br/>
-  <li>Discovery Server: http://localhost:8761/
+  <li>Discovery Server: <a href="http://localhost:8761/">http://localhost:8761/</a>
   </li>
   <br/>
-  <li>Microservice  : http://localhost:8083/ping
+  <li>Microservice  : <a href = "http://localhost:8083/ping">http://localhost:8083/ping</a>
   </li>
   <br/>
-  <li>Microservice  (client with Load Balacing and Circuit Breaker ): http://localhost:8081/greeting
+  <li>Microservice  (client with Load Balacing and Circuit Breaker ): <a href ="http://localhost:8081/greeting">http://localhost:8081/greeting</a>
   </li>
   <br/>
-  <li>Microservice  over proxy: http://localhost:9999/sc-service-client/greeting    acme/password
+  <li>Microservice  over proxy: <a href="http://localhost:9999/sc-service-client/greeting">http://localhost:9999/sc-service-client/greeting</a>    acme/password
   </li>
   <br/>
-  <li>Service Trace  with Zipkin: http://localhost:9411/  
+  <li>Service Trace  with Zipkin: <a href=" http://localhost:9411/">http://localhost:9411/</a>  
   </li>
   <br/>
-  <li>Circuit Breakers Monitor: http://localhost:8082/hystrix/monitor?stream=http://localhost:8082/turbine.stream
+  <li>Circuit Breakers Monitor: <a href="http://localhost:8082/hystrix/monitor?stream=http://localhost:8082/turbine.stream" >http://localhost:8082/hystrix/monitor?stream=http://localhost:8082/turbine.stream</a>
   </li>
   <br/>
 </ol>
