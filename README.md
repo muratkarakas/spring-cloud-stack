@@ -35,4 +35,35 @@ One of the problem with services is what to do when service is down or what to d
 Spring Cloud Hystrix provides "Circuit Breakers" for those situations. You can define fallback methods and SLA's for service executions. Hystrix dashboard enable users to monitor these Circuit Breakers at realtime(sc-hystrix-dashboard).
 
 
-### To Be Continue....
+## How to run:
+<ol>
+  <li>Install docker container(<a href="https://docs.docker.com/engine/getstarted/step_one/">getting started guide</a>)
+  </li>
+  <br/>
+  <li>git clone https://github.com/muratkarakas/spring-cloud-stack.git
+  </li>
+  <br/>
+  <li>To build and run application run ./dockerRun.sh in the root directory.Before running script you should increase docker default memory settings
+  <br/>
+  <img src="https://i.stack.imgur.com/bjHNdl.png"></img>
+  </li>
+  <br/>
+  <li>Discovery Server:http://localhost:8761/
+  </li>
+  <br/>
+  <li>Microservice  :http://localhost:8083/ping
+  </li>
+  <br/>
+  <li>Microservice  (client with Load Balacing and Circuit Breaker ):http://localhost:8081/greeting
+  </li>
+  <br/>
+  <li>Microservice  over proxy: http://localhost:9999/sc-service-client/greeting    acme/password
+  </li>
+  <br/>
+  <li>Service Trace  with Zipkin: http://localhost:9411/  
+  </li>
+  <br/>
+  <li>Circuit Breakers Monitor: http://localhost:8082/hystrix/monitor?stream=http://localhost:8082/turbine.stream
+  </li>
+  <br/>
+</ol>
