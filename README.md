@@ -3,7 +3,7 @@ Spring Cloud Playground Application. Spring Cloud Netflix solutions to microserv
 
 ## Problems:
 ### 1.Service Configuration:
-Let's say you have 25(I guess you have more) microsservices and  3 or more environments(DEV-TEST-PROD) so it makes at least it makes 75 configuration files.
+Let's say you have 25(I guess you have more) microsservices and  3 or more environments(DEV-TEST-PROD) so it makes at least 75 configuration files.
 By the service count,env and configuration item increase it gets more complex.
 
 #### Solution:
