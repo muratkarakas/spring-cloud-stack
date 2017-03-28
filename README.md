@@ -10,10 +10,10 @@ By the service count,envenvironment and configuration item increase it gets more
 Spring cloud configuration server centralizes all configuration separated by environment and service (sc-config-server).
 
 ### 2.Service Discovery:
-Services should be discoverable by clients(by services or by applications) and administrators in one place.IP address or hosts can change and clients shouldn't be effect by this.Only service name should be enough to communicate with it.
+Services should be discoverable by clients  and administrators in one place.IP address or hosts can change and clients shouldn't be effect by this.Only service name should be enough to communicate with it.
 
 #### Solution:
-Spring Cloud Netflix Eureka server is used as service registry like UDDI.Each microservice registers itself(also  different instances of same service). When another service needs to communicate with this service it lookups by name in "Eureka Discovery Server"(sc-eureka-server).
+Spring Cloud Netflix Eureka server is used as service registry like UDDI.Each microservice registers itself(also  different instances of same service). When another service needs to communicate with this service it lookups by name in "Eureka Discovery Server"(sc-eureka-server).Adminstrators can also monitor UP status of services from  Eureka Dashboard.
 
 
 ### 3.Service/Transaction Tracing:
