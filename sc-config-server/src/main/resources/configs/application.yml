@@ -8,10 +8,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
-  healthcheck:
+    healthcheck:
       enabled: true
-  lease:
-      duration: 5
       
       
 ---
@@ -22,9 +20,10 @@ spring:
     baseUrl: http://zipkinserver:9411/            
 
 eureka:
-  profiles: docker
   instance:
     prefer-ip-address: true
   client:
+    healthcheck:
+      enabled: true
     service-url:
       defaultZone: http://eurekaserver:8761/eureka/    

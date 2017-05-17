@@ -1,5 +1,7 @@
 package com.etereration.sc.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -16,7 +18,11 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 @RestController
 @EnableHystrix
 public class SCServiceApplication {
-    public static void main(String[] args) {
+ 
+	
+	private Logger logger = LoggerFactory.getLogger(SCServiceApplication.class);
+	
+	public static void main(String[] args) {
         SpringApplication.run(SCServiceApplication.class, args);
     }
  
@@ -28,11 +34,13 @@ public class SCServiceApplication {
     @HystrixCommand
     @RequestMapping("/ping")
     public String ping() {
+    	logger.info("Ping from service");
         return "pong";
     }
     @HystrixCommand
     @RequestMapping("/message")
     public String messsage() {
+    	logger.info("Message from service");
         return "Hello World";
     }
 }
